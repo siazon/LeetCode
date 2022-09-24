@@ -154,7 +154,7 @@ public class BinarySearch {
 		// System.out.print(new BinarySearch().BinarySearchby());
 		// System.out.print(new BinarySearch().leetcode35());
 		int[] list = new BinarySearch().leetcode34();
-		// System.out.print(list[0] + "," + list[1]);
+		 System.out.print(list[0] + "," + list[1]);
 		// System.out.print(new BinarySearch().leetcode69());
 	}
 
