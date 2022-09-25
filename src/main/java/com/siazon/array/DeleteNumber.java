@@ -114,7 +114,7 @@ public class DeleteNumber {
     public static void main(String[] args) {
         System.out.println(DeleteNumber.delete27());
         // System.out.println(new DeleteNumber().leetcode209());
-//		System.out.println(new DeleteNumber().born(3, 1));
+        //System.out.println(new DeleteNumber().born(3, 1));
     }
 
 }
