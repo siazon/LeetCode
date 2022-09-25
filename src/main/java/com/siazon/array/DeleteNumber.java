@@ -96,7 +96,6 @@ public class DeleteNumber {
     public void leetcode59(int n) {
         int x = 0, y = 0;
         int i = 0;
-
     }
 
     public int born(int j, int amount) {
