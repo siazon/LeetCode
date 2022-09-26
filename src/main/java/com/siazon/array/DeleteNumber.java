@@ -111,11 +111,52 @@ public class DeleteNumber {
         }
     }
 
+
     public static void main(String[] args) {
-        System.out.println(DeleteNumber.delete27());
+        System.out.println(DeleteNumber.uniquePaths(4, 3));
+
+
+        return;
+
+
+        //System.out.println(DeleteNumber.delete27());
         // System.out.println(new DeleteNumber().leetcode209());
 
         //System.out.println(new DeleteNumber().born(3, 1));
     }
 
+    static int[][] arr = null;
+
+    public static int uniquePaths(int m, int n) {
+        // 创建一个二维数组
+        DeleteNumber.arr = new int[m][n];
+        return DeleteNumber.dfs(m - 1, n - 1);
+    }
+
+    public static int dfs(int i, int j) {
+        if (i == 0 || j == 0) {
+            System.out.println("i=0:" + i + " " + j + " " + arr[i][j]);
+            return 1;
+        }
+        // java 里，数组的初始值是 0，所以可以用 arr[i][i] 是否为 0 来判断
+//        if (arr[i][j] != 0) {
+//            System.out.println("arr[i][j] != 0:" + i + " " + j + " " + arr[i][j]);
+//            return arr[i][j];
+//        }
+
+        // 把计算过的指保存起来
+        arr[i][j] = dfs(i - 1, j) + dfs(i, j - 1);
+        System.out.println(i + " " + j + " " + arr[i][j]);
+        return arr[i][j];
+    }
+
+    public static void printNumb(int n) {
+        if (n > 9) {
+            printNumb(n / 10);
+        }
+        System.out.print(n % 10);
+
+    }
+
+  
 }
