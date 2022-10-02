@@ -112,10 +112,19 @@ public class DeleteNumber {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println(DeleteNumber.uniquePaths(4, 3));
+    public static void main(String[] args) throws ClassNotFoundException {
+        //System.out.println(DeleteNumber.uniquePaths(4, 3));
 
 
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                for (int x = 0; x < 10; x++) {
+                    System.out.println(x);
+                    if (x == 2) return;
+                }
+            }
+        }
+        System.out.println("end");
         return;
 
 
@@ -158,5 +167,5 @@ public class DeleteNumber {
 
     }
 
-  
+
 }
