@@ -1,6 +1,7 @@
 package com.siazon.tree;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class BuildTreeTest {
     BuildTree test;
@@ -12,6 +13,7 @@ class BuildTreeTest {
 
     @org.junit.jupiter.api.Test
     void buildTreeTest() {
+        List<TreeNode> trees = new ArrayList<>();
         test.buildTree(new int[]{9, 3, 15, 20, 7}, new int[]{9, 15, 7, 20, 3});
     }
 

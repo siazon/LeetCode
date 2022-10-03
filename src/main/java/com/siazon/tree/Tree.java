@@ -3,24 +3,15 @@ package com.siazon.tree;
 import java.util.*;
 
 public class Tree {
-    public static void main(String[] args) {
-        TreeNode tree = CreateTree();
-        // List<List<Integer>> list = LayerTraversal(tree);
-        // for(List<Integer> item: list)
-        // {
-        //     System.out.println();
-        //     for (int i : item)
-        //    System.out.print(i);
-        // }
-        System.out.println(minlen(tree));
-    }
 
-    public static int minlen(TreeNode root) {
+    public TreeNode tree;
+
+    public int minLength(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int leftDepth = minlen(root.left);
-        int rightDepth = minlen(root.right);
+        int leftDepth = minLength(root.left);
+        int rightDepth = minLength(root.right);
         if (root.left == null) {
             return rightDepth + 1;
         }
@@ -31,7 +22,7 @@ public class Tree {
         return Math.min(leftDepth, rightDepth) + 1;
     }
 
-    public static TreeNode CreateTree() {
+    public TreeNode createTree() {
         /*
          *    5
          *  4   6
@@ -43,28 +34,27 @@ public class Tree {
         TreeNode treeNode4 = new TreeNode(4, treeNode1, treeNode2);
         TreeNode treeNode7 = new TreeNode(7);
         TreeNode treeNode8 = new TreeNode(8);
-        TreeNode treeNode6 = new TreeNode(6, null, treeNode8);
-        TreeNode root = new TreeNode(5, treeNode4, treeNode6);
+        TreeNode treeNode6 = new TreeNode(6, treeNode7, treeNode8);
 
-        return root;
+        return new TreeNode(5, treeNode4, treeNode6);
     }
 
-    public static int maxlen(TreeNode node) {
+    public int maxlength(TreeNode node) {
         if (node == null) return 0;
-        int left = maxlen(node.left);
-        int right = maxlen(node.right);
+        int left = maxlength(node.left);
+        int right = maxlength(node.right);
 
         return Math.max(left, right) + 1;
     }
 
-    static List<List<Integer>> result = new ArrayList<>();
+    List<List<Integer>> result = new ArrayList<>();
 
-    public static List<List<Integer>> checkFun(TreeNode root) {
-        Checkfun1(root, 0);
+    public List<List<Integer>> checkFun(TreeNode root) {
+        checkfun1(root, 0);
         return result;
     }
 
-    public static void Checkfun1(TreeNode node, int deep) {
+    private void checkfun1(TreeNode node, int deep) {
         if (node == null) return;
         deep++;
         if (result.size() < deep) {
@@ -72,12 +62,12 @@ public class Tree {
             result.add(item);
         }
         result.get(deep - 1).add(node.val);
-        Checkfun1(node.left, deep);
-        Checkfun1(node.right, deep);
+        checkfun1(node.left, deep);
+        checkfun1(node.right, deep);
 
     }
 
-    public static List<List<Integer>> LayerTraversal(TreeNode root) {
+    public List<List<Integer>> layerTraversal(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         if (root != null) queue.offer(root);
@@ -98,7 +88,7 @@ public class Tree {
         return result;
     }
 
-    public static List<Integer> commonTraversal(TreeNode root) {
+    public List<Integer> commonTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         if (root != null) stack.push(root);
@@ -120,7 +110,7 @@ public class Tree {
         return result;
     }
 
-    public static List<Integer> midorderTraversal(TreeNode root) {
+    public List<Integer> midorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
@@ -140,7 +130,7 @@ public class Tree {
         return result;
     }
 
-    public static List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
@@ -156,13 +146,13 @@ public class Tree {
         return result;
     }
 
-    public static List<Integer> inorderTraversal(TreeNode root) {
+    public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         inorder(root, res);
         return res;
     }
 
-    static void inorder(TreeNode root, List<Integer> list) {
+    private void inorder(TreeNode root, List<Integer> list) {
         if (root == null)
             return;
         inorder(root.left, list);
