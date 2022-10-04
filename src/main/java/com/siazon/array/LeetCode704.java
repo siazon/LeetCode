@@ -28,7 +28,6 @@ public class LeetCode704 {
                 left = mid + 1;
             } else return mid;
         }
-
         return -1;
     }
 
