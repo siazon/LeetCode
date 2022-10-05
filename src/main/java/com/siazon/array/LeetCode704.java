@@ -1,9 +1,5 @@
 package com.siazon.array;
 
-import com.siazon.tree.TreeNode;
-
-import java.util.PriorityQueue;
-
 /**
  * @author Xiasong Chen A00291322
  * @version 1.0
@@ -34,8 +30,6 @@ public class LeetCode704 {
     public static void main(String[] args) {
         System.out.print(new LeetCode704().BinarySearchby());
 
-        PriorityQueue<TreeNode> pq = new PriorityQueue<>(
-                lists.length, (a, b) -> (a.val - b.val));
 
     }
 
