@@ -15,4 +15,10 @@ class LinkCrossTest {
     void getIntersectionNode() {
         System.out.println(test.getIntersectionNode(test.a, test.b).val);
     }
+
+    @Test
+    void coinChangeTest() {
+        int[] a = new int[]{1, 2, 5};
+        test.coinChange(a, 11);
+    }
 }
