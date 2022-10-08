@@ -69,4 +69,19 @@ public class NodeReverse {
         head.next = reverseBetween(head.next, m - 1, n - 1);
         return head;
     }
+
+    public boolean isPalindrome(ListNode head) {
+        node = head;
+        return traverserome(head);
+    }
+
+    private boolean traverserome(ListNode head) {
+        if (head == null) return true;
+        boolean res = traverserome(head.next);
+
+        res = res && node.val == head.val;
+        node = node.next;
+        return res;
+    }
+
 }

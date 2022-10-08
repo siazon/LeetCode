@@ -40,4 +40,10 @@ class NodeReverseTest {
             n = n.next;
         }
     }
+
+    @Test
+    void isPalindromeTest() {
+        boolean head = test.isPalindrome(test.a);
+        System.out.println(head);
+    }
 }
