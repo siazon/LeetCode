@@ -28,23 +28,4 @@ class LinkCrossTest {
         System.out.println(head.val);
     }
 
-    @Test
-    void reverseToNumberTest() {
-        ListNode head = test.reverseToNumber(test.a, 2);
-        ListNode n = head;
-        while (n != null) {
-            System.out.println(n.val);
-            n = n.next;
-        }
-    }
-
-    @Test
-    void reverseBetweenTest() {
-        ListNode head = test.reverseBetween(test.a, 2, 3);
-        ListNode n = head;
-        while (n != null) {
-            System.out.println(n.val);
-            n = n.next;
-        }
-    }
 }

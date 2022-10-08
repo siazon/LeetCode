@@ -65,24 +65,5 @@ public class LinkCross {
         return last;
     }
 
-    ListNode node;
 
-    public ListNode reverseToNumber(ListNode head, int n) {
-        if (n == 1) {
-            node = head.next;
-            return head;
-        }
-        ListNode last = reverseToNumber(head.next, n - 1);
-        head.next.next = head;
-        head.next = node;
-        return last;
-    }
-
-    public ListNode reverseBetween(ListNode head, int m, int n) {
-        if (m == 1) {
-            return reverseToNumber(head, n);
-        }
-        head.next = reverseBetween(head.next, m - 1, n - 1);
-        return head;
-    }
 }
