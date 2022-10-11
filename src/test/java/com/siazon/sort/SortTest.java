@@ -28,4 +28,12 @@ class SortTest {
             System.out.println(i);
         }
     }
+
+    @Test
+    void shierSortTest() {
+        test.shierSort(a);
+        for (int i : a) {
+            System.out.println(i);
+        }
+    }
 }
