@@ -36,4 +36,12 @@ class SortTest {
             System.out.println(i);
         }
     }
+
+    @Test
+    void MergeSortTest() {
+        test.MergeSort(a);
+        for (int i : a) {
+            System.out.println(i);
+        }
+    }
 }
