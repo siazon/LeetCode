@@ -48,6 +48,30 @@ public class Sort {
         return numbs;
     }
 
+    public void mergeSort(int[] array, int start, int end, int[] temp) {
+        if (start >= end) return;
+        int mid = (start + end) / 2;
+        mergeSort(array, start, mid, temp);
+        mergeSort(array, mid + 1, end, temp);
+        int f = start, s = mid + 1, t = 0;
+        while (f <= mid && s <= end) {
+            if (array[f] < array[s]) {
+                temp[t++] = array[f++];
+            } else {
+                temp[t++] = array[s++];
+            }
+        }
+        while (f <= mid) {
+            temp[t++] = array[f++];
+        }
+        while (s <= end) {
+            temp[t++] = array[s++];
+        }
+        for (int i = 0, j = start; i < t; i++) {
+            array[j++] = temp[i];
+        }
+    }
+
     public int[] MergeSort(int[] array) {
         if (array.length < 2) return array;
         int mid = array.length / 2;
