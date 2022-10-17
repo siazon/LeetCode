@@ -110,6 +110,7 @@ public class Tree {
         return result;
     }
 
+    //中序迭代
     public List<Integer> midorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) {
@@ -130,6 +131,7 @@ public class Tree {
         return result;
     }
 
+    //前序迭代
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) {
@@ -146,12 +148,14 @@ public class Tree {
         return result;
     }
 
+    //后序递归
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         inorder(root, res);
         return res;
     }
 
+    //后序递归
     private void inorder(TreeNode root, List<Integer> list) {
         if (root == null)
             return;
