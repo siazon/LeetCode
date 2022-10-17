@@ -88,6 +88,7 @@ public class Tree {
         return result;
     }
 
+    //统一迭代写法
     public List<Integer> commonTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
@@ -97,7 +98,7 @@ public class Tree {
             if (cur != null) {
                 stack.pop();
                 if (cur.right != null) stack.push(cur.right);
-                stack.push(cur);
+                stack.push(cur);//此二行所在位置代表什么顺序
                 stack.push(null);
                 if (cur.left != null) stack.push(cur.left);
             } else {
