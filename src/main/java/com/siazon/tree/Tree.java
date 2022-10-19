@@ -54,6 +54,7 @@ public class Tree {
         return result;
     }
 
+    //递归广度优先
     private void checkfun1(TreeNode node, int deep) {
         if (node == null) return;
         deep++;
@@ -83,7 +84,6 @@ public class Tree {
                 i--;
             }
             result.add(items);
-
         }
         return result;
     }
