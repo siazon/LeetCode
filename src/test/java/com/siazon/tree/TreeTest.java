@@ -3,6 +3,8 @@ package com.siazon.tree;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 class TreeTest {
     Tree test;
 
@@ -46,5 +48,17 @@ class TreeTest {
 
     @Test
     void inorderTraversal() {
+    }
+
+    @Test
+    void levelTraversalText() {
+        test.levelTraversal(test.tree);
+        for (List<Integer> list : test.result) {
+            System.out.println();
+            for (Integer i : list) {
+                System.out.print(i);
+            }
+        }
+
     }
 }

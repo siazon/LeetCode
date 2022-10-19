@@ -68,6 +68,29 @@ public class Tree {
 
     }
 
+    public void levelTraversal(TreeNode root) {
+        if (root == null) return;
+        List<TreeNode> nodes = new ArrayList<>();
+        nodes.add(root);
+        levelTraversalSub(nodes);
+    }
+
+    private void levelTraversalSub(List<TreeNode> preNodes) {
+        if (preNodes.isEmpty()) return;
+        List<Integer> nodes = new ArrayList<>();
+        List<TreeNode> nextNodes = new ArrayList<>();
+        for (TreeNode node : preNodes) {
+            nodes.add(node.val);
+            if (node.left != null)
+                nextNodes.add(node.left);
+            if (node.right != null)
+                nextNodes.add(node.right);
+
+        }
+        result.add(nodes);
+        levelTraversalSub(nextNodes);
+    }
+
     public List<List<Integer>> layerTraversal(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
