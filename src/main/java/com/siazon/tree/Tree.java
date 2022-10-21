@@ -39,6 +39,43 @@ public class Tree {
         return new TreeNode(5, treeNode4, treeNode6);
     }
 
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        invertTree(root.left);
+        invertTree(root.right);
+        swapChildren(root);
+        return root;
+    }
+
+    private void swapChildren(TreeNode root) {
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+    }
+
+    public void reverseTree(TreeNode root) {
+        if (root == null) return;
+        List<TreeNode> nodes = new ArrayList<>();
+        nodes.add(root);
+        reverseTreeSub(nodes);
+    }
+
+    private void reverseTreeSub(List<TreeNode> preNodes) {
+        if (preNodes.isEmpty()) return;
+        List<Integer> nodes = new ArrayList<>();
+        List<TreeNode> nextNodes = new ArrayList<>();
+        for (TreeNode node : preNodes) {
+            nodes.add(node.val);
+            if (node.left != null) nextNodes.add(node.left);
+            if (node.right != null) nextNodes.add(node.right);
+        }
+        Collections.reverse(nodes);
+        result.add(nodes);
+        reverseTreeSub(nextNodes);
+    }
+
     public int maxlength(TreeNode node) {
         if (node == null) return 0;
         int left = maxlength(node.left);

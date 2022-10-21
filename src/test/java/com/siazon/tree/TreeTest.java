@@ -61,4 +61,28 @@ class TreeTest {
         }
 
     }
+
+    @Test
+    void reverseTreeTest() {
+        test.reverseTree(test.tree);
+        for (List<Integer> list : test.result) {
+            System.out.println();
+            for (Integer i : list) {
+                System.out.print(i);
+            }
+        }
+    }
+
+    @Test
+    void invertTreeTest() {
+        test.invertTree(test.tree);
+        test.levelTraversal(test.tree);
+        for (List<Integer> list : test.result) {
+            System.out.println();
+            for (Integer i : list) {
+                System.out.print(i);
+            }
+        }
+
+    }
 }
