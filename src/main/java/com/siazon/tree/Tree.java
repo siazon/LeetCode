@@ -250,5 +250,24 @@ public class Tree {
         boolean compareInside = compare(left.right, right.left);
         return compareOutside && compareInside;
     }
+
+    public int maxDepth(TreeNode root) {
+        if (root == null) return 0;
+        int depth = 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            depth++;
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (node != null) {
+                    if (node.left != null) queue.offer(node.left);
+                    if (node.right != null) queue.offer(node.right);
+                }
+            }
+        }
+        return depth;
+    }
 }
 
