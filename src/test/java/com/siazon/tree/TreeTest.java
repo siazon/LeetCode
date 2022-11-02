@@ -85,4 +85,10 @@ class TreeTest {
         }
 
     }
+
+    @Test
+    void maxDepthRecursionTest() {
+        int length = test.maxDepthRecursion(test.tree);
+        System.out.println(length);
+    }
 }
