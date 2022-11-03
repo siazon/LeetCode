@@ -91,4 +91,16 @@ class TreeTest {
         int length = test.maxDepthRecursion(test.tree);
         System.out.println(length);
     }
+
+    @Test
+    void minDepthRecursionTest() {
+        int length = test.minDepthRecursion(test.tree);
+        System.out.println(length);
+    }
+
+    @Test
+    void minDepthTest() {
+        int length = test.minDepthRecursion(test.tree);
+        System.out.println(length);
+    }
 }

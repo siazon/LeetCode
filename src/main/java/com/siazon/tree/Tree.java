@@ -277,5 +277,48 @@ public class Tree {
         int rightLenght = maxDepthRecursion(root.right);
         return Math.max(leftLenght, rightLenght) + 1;
     }
+
+//    public int maxNTreeDepth(TreeNode root) {
+//        if (root == null) return 0;
+//        int depth = 0;
+//        if (root.children != null) {
+//            for (TreeNode node : root.children) {
+//                depth = Math.max(node.val, depth);
+//            }
+//        }
+//        return depth + 1;
+//    }
+
+    public int minDepth(TreeNode root) {
+        if (root == null) return 0;
+        Deque<TreeNode> que = new LinkedList<>();
+        que.offer(root);
+        int depth = 0;
+        while (!que.isEmpty()) {
+            int size = que.size();
+            depth++;
+            for (int i = 0; i < size; i++) {
+                TreeNode cur = que.poll();
+                if (cur.left == null && cur.right == null)
+                    return depth;
+                if (cur.left != null)
+                    que.offer(cur.left);
+                if (cur.right != null)
+                    que.offer(cur.right);
+            }
+        }
+        return depth;
+    }
+
+    public int minDepthRecursion(TreeNode root) {
+        if (root == null) return 0;
+        int leftLenght = maxDepthRecursion(root.left);
+        int rightLenght = maxDepthRecursion(root.right);
+        if (root.left == null)
+            return rightLenght + 1;
+        if (root.right == null)
+            return leftLenght + 1;
+        return Math.min(leftLenght, rightLenght) + 1;
+    }
 }
 
