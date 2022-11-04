@@ -103,4 +103,10 @@ class TreeTest {
         int length = test.minDepthRecursion(test.tree);
         System.out.println(length);
     }
+
+    @Test
+    void getNodeNumberTest() {
+        int length = test.getNodeNumber(test.tree);
+        System.out.println(length);
+    }
 }

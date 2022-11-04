@@ -34,7 +34,7 @@ public class Tree {
         TreeNode treeNode4 = new TreeNode(4, treeNode1, treeNode2);
         TreeNode treeNode7 = new TreeNode(7);
         TreeNode treeNode9 = new TreeNode(9);
-        TreeNode treeNode8 = new TreeNode(8, treeNode9, null);
+        TreeNode treeNode8 = new TreeNode(8, null, null);
         TreeNode treeNode6 = new TreeNode(6, treeNode7, treeNode8);
 
         return new TreeNode(5, treeNode4, treeNode6);
@@ -278,7 +278,7 @@ public class Tree {
         return Math.max(leftLenght, rightLenght) + 1;
     }
 
-//    public int maxNTreeDepth(TreeNode root) {
+    //    public int maxNTreeDepth(TreeNode root) {
 //        if (root == null) return 0;
 //        int depth = 0;
 //        if (root.children != null) {
@@ -288,7 +288,7 @@ public class Tree {
 //        }
 //        return depth + 1;
 //    }
-
+    //最小深度迭代
     public int minDepth(TreeNode root) {
         if (root == null) return 0;
         Deque<TreeNode> que = new LinkedList<>();
@@ -310,6 +310,7 @@ public class Tree {
         return depth;
     }
 
+    //最小深度递归
     public int minDepthRecursion(TreeNode root) {
         if (root == null) return 0;
         int leftLenght = maxDepthRecursion(root.left);
@@ -319,6 +320,15 @@ public class Tree {
         if (root.right == null)
             return leftLenght + 1;
         return Math.min(leftLenght, rightLenght) + 1;
+    }
+
+    //222.完全二叉树的节点个数
+    public int getNodeNumber(TreeNode root) {
+        if (root == null) return 0;
+        int number = 0;
+        int leftNumber = getNodeNumber(root.left);
+        int rightNumber = getNodeNumber(root.right);
+        return leftNumber + rightNumber + 1;
     }
 }
 
