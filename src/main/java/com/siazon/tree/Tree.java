@@ -34,7 +34,7 @@ public class Tree {
         TreeNode treeNode4 = new TreeNode(4, treeNode1, treeNode2);
         TreeNode treeNode7 = new TreeNode(7);
         TreeNode treeNode9 = new TreeNode(9);
-        TreeNode treeNode8 = new TreeNode(8, null, null);
+        TreeNode treeNode8 = new TreeNode(8, treeNode9, null);
         TreeNode treeNode6 = new TreeNode(6, treeNode7, treeNode8);
 
         return new TreeNode(5, treeNode4, treeNode6);
@@ -329,6 +329,23 @@ public class Tree {
         int leftNumber = getNodeNumber(root.left);
         int rightNumber = getNodeNumber(root.right);
         return leftNumber + rightNumber + 1;
+    }
+
+    public int getNodeNumbers(TreeNode root) {
+        if (root == null) return 0;
+        Deque<TreeNode> que = new LinkedList<>();
+        que.offer(root);
+        int number = 0;
+        while (!que.isEmpty()) {
+            int size = que.size();
+            while (size-- > 0) {
+                TreeNode node = que.poll();
+                number++;
+                if (node != null && node.left != null) que.offer(node.left);
+                if (node != null && node.right != null) que.offer(node.right);
+            }
+        }
+        return number;
     }
 }
 

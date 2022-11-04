@@ -106,7 +106,7 @@ class TreeTest {
 
     @Test
     void getNodeNumberTest() {
-        int length = test.getNodeNumber(test.tree);
+        int length = test.getNodeNumbers(test.tree);
         System.out.println(length);
     }
 }
