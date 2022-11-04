@@ -109,4 +109,10 @@ class TreeTest {
         int length = test.getNodeNumbers(test.tree);
         System.out.println(length);
     }
+
+    @Test
+    void isBalanceTreeTest() {
+        boolean length = test.isBalanceTree(test.tree);
+        System.out.println(length);
+    }
 }

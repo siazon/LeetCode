@@ -33,7 +33,8 @@ public class Tree {
         TreeNode treeNode2 = new TreeNode(2);
         TreeNode treeNode4 = new TreeNode(4, treeNode1, treeNode2);
         TreeNode treeNode7 = new TreeNode(7);
-        TreeNode treeNode9 = new TreeNode(9);
+        TreeNode treeNode19 = new TreeNode(19);
+        TreeNode treeNode9 = new TreeNode(9, treeNode19, null);
         TreeNode treeNode8 = new TreeNode(8, treeNode9, null);
         TreeNode treeNode6 = new TreeNode(6, treeNode7, treeNode8);
 
@@ -346,6 +347,24 @@ public class Tree {
             }
         }
         return number;
+    }
+
+    //110.平衡二叉树
+    public boolean isBalanceTree(TreeNode root) {
+        return getLength(root) != -1;
+    }
+
+    private int getLength(TreeNode node) {
+        if (node == null) return 0;
+        int left = getLength(node.left);
+        if (left == -1) return -1;
+        int right = getLength(node.right);
+        if (right == -1) return -1;
+        if (Math.abs(left - right) > 1) {
+            return -1;
+        } else {
+            return Math.max(left, right) + 1;
+        }
     }
 }
 
