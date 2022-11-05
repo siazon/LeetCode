@@ -366,5 +366,33 @@ public class Tree {
             return Math.max(left, right) + 1;
         }
     }
+
+    //257. 二叉树的所有路径
+    public List<String> getTreePath(TreeNode root) {
+        List<String> list = new ArrayList<>();
+        if (root == null) return list;
+
+    }
+
+    private void traversalTreePath(TreeNode root, List<Integer> paths, List<String> res) {
+        paths.add(root.val);
+        if (root.left == null && root.right == null) {
+            StringBuilder str = new StringBuilder();
+            for (int i = 0; i < paths.size() - 1; i++) {
+                str.append(paths.get(i)).append("->");
+            }
+            str.append(paths.get(paths.size() - 1));
+            res.add(str.toString());
+            return;
+        }
+        if (root.left != null) {
+            traversalTreePath(root.left, paths, res);
+            paths.remove(paths.size() - 1);
+        }
+        if (root.right != null) {
+            traversalTreePath(root.right, paths, res);
+            paths.remove(paths.size() - 1);
+        }
+    }
 }
 
