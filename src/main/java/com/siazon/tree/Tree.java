@@ -371,7 +371,9 @@ public class Tree {
     public List<String> getTreePath(TreeNode root) {
         List<String> list = new ArrayList<>();
         if (root == null) return list;
-
+        List<Integer> paths = new ArrayList<>();
+        traversalTreePath(root, paths, list);
+        return list;
     }
 
     private void traversalTreePath(TreeNode root, List<Integer> paths, List<String> res) {
