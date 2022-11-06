@@ -115,4 +115,10 @@ class TreeTest {
         boolean length = test.isBalanceTree(test.tree);
         System.out.println(length);
     }
+
+    @Test
+    void getLeftSumTest() {
+        int length = test.leftSum(test.tree);
+        System.out.println(length);
+    }
 }

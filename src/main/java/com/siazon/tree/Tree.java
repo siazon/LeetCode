@@ -29,12 +29,13 @@ public class Tree {
          * 1 2 7 8
          * 前5412678 中1425768 后1247865
          */
+
+        TreeNode treeNode19 = new TreeNode(19);
         TreeNode treeNode1 = new TreeNode(1);
-        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode2 = new TreeNode(2, treeNode19, null);
         TreeNode treeNode4 = new TreeNode(4, treeNode1, treeNode2);
         TreeNode treeNode7 = new TreeNode(7);
-        TreeNode treeNode19 = new TreeNode(19);
-        TreeNode treeNode9 = new TreeNode(9, treeNode19, null);
+        TreeNode treeNode9 = new TreeNode(9, null, null);
         TreeNode treeNode8 = new TreeNode(8, treeNode9, null);
         TreeNode treeNode6 = new TreeNode(6, treeNode7, treeNode8);
 
@@ -395,6 +396,27 @@ public class Tree {
             traversalTreePath(root.right, paths, res);
             paths.remove(paths.size() - 1);
         }
+    }
+
+    public int leftSum(TreeNode root) {
+        getLeftSum(root);
+        return sum;
+    }
+
+    int sum = 0;
+
+    public void getLeftSum(TreeNode root) {
+        if (root == null) return;
+
+        if (root.left != null) {
+            getLeftSum(root.left);
+            if (root.left.left == null && root.left.right == null)
+                sum += root.left.val;
+        }
+        if (root.right != null)
+            getLeftSum(root.right);
+
+
     }
 }
 
