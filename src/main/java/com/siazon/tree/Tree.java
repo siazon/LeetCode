@@ -32,7 +32,7 @@ public class Tree {
 
         TreeNode treeNode19 = new TreeNode(19);
         TreeNode treeNode1 = new TreeNode(1);
-        TreeNode treeNode2 = new TreeNode(2, treeNode19, null);
+        TreeNode treeNode2 = new TreeNode(2, null, treeNode19);
         TreeNode treeNode4 = new TreeNode(4, treeNode1, treeNode2);
         TreeNode treeNode7 = new TreeNode(7);
         TreeNode treeNode9 = new TreeNode(9, null, null);
@@ -419,5 +419,28 @@ public class Tree {
 
     }
 
+    int maxDepth = 0;
+    int leftValue = 0;
+
+    //513.找树左下角的值
+    public int getMaxLeft(TreeNode root) {
+        leftValue = root.val;
+        maxLeft(root, leftValue);
+        return leftValue;
+    }
+
+    public void maxLeft(TreeNode root, int deep) {
+        if (root == null) return;
+        if (root.left == null && root.right == null) {
+            if (maxDepth < deep) {
+                maxDepth = deep;
+                leftValue = root.val;
+            }
+        }
+        if (root.left != null)
+            maxLeft(root.left, deep + 1);
+        if (root.right != null)
+            maxLeft(root.right, deep + 1);
+    }
 }
 

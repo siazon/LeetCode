@@ -121,4 +121,10 @@ class TreeTest {
         int length = test.leftSum(test.tree);
         System.out.println(length);
     }
+
+    @Test
+    void getMaxLeft() {
+        int left = test.getMaxLeft(test.tree);
+        System.out.println(left);
+    }
 }
