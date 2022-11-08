@@ -118,7 +118,6 @@ class TreeTest {
 
     @Test
     void getLeftSumTest() {
-
         int length = test.leftSum(test.tree);
         System.out.println(length);
     }

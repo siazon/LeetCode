@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TreeBack {
@@ -46,6 +48,7 @@ public class TreeBack {
     }
 
     public void Stop() throws IOException {
+        List<String> test = new LinkedList<>();
         socket.close();
     }
 
@@ -58,8 +61,8 @@ public class TreeBack {
 
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) throws IOException {
 
+    public static void main(String[] args) throws IOException {
 //        TreeBack back = new TreeBack();
 //        Thread threadA = new Thread(new Runnable() {
 //            @Override
