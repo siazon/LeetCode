@@ -442,5 +442,24 @@ public class Tree {
         if (root.right != null)
             maxLeft(root.right, deep + 1);
     }
+
+    //112. 路径总和
+    public boolean sumNode(TreeNode root, int target) {
+        boolean res = false;
+        target -= root.val;
+        if (root.left == null && root.right == null)
+            return target == 0;
+        if (root.left != null) {
+            boolean sRes = sumNode(root.left, target);
+            if (sRes) return sRes;
+        }
+        if (root.right != null) {
+            boolean sRes = sumNode(root.right, target);
+            if (sRes) return sRes;
+        }
+        return res;
+    }
+
+
 }
 

@@ -126,5 +126,6 @@ class TreeTest {
     void getMaxLeft() {
         int left = test.getMaxLeft(test.tree);
         System.out.println(left);
+
     }
 }
