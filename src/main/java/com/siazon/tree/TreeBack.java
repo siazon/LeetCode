@@ -63,7 +63,9 @@ public class TreeBack {
 
 
     public static void main(String[] args) throws IOException {
-//        TreeBack back = new TreeBack();
+
+        TreeBack back = new TreeBack();
+
 //        Thread threadA = new Thread(new Runnable() {
 //            @Override
 //            public void run() {
