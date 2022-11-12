@@ -485,7 +485,6 @@ public class Tree {
                 postorder, postBegin, postBegin + lenOfLeft);
         root.right = findNode(inorder, rootIndex + 1, inEnd,
                 postorder, postBegin + lenOfLeft, postEnd - 1);
-
         return root;
     }
 }
