@@ -523,5 +523,13 @@ public class Tree {
         root1.right = mergeTree(root1.right, root2.right);
         return root1;
     }
+
+    public TreeNode searchBST(TreeNode root, int val) {
+        if (root == null || root.val == val) return root;
+        TreeNode node = null;
+        if (root.val > val) node = searchBST(root.left, val);
+        if (root.val < val) node = searchBST(root.right, val);
+        return node;
+    }
 }
 
