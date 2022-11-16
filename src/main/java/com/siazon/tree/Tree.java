@@ -515,6 +515,7 @@ public class Tree {
         return root;
     }
 
+    //617.合并二叉树
     public TreeNode mergeTree(TreeNode root1, TreeNode root2) {
         if (root1 == null) return root2;
         if (root2 == null) return root1;
@@ -524,6 +525,7 @@ public class Tree {
         return root1;
     }
 
+    //700.二叉搜索树中的搜索
     public TreeNode searchBST(TreeNode root, int val) {
         if (root == null || root.val == val) return root;
         TreeNode node = null;
@@ -531,5 +533,20 @@ public class Tree {
         if (root.val < val) node = searchBST(root.right, val);
         return node;
     }
+
+    TreeNode max = null;
+
+    //98.验证二叉搜索树 也可以用中序遍历，查看是否递增
+    public boolean isBST(TreeNode root) {
+        if (root == null) return true;
+        boolean isleft = isBST(root.left);
+        if (!isleft) return false;
+        if (max != null && max.val < root.val)
+            return true;
+        max = root;
+        boolean isright = isBST(root.right);
+        return isright;
+    }
+
 }
 
