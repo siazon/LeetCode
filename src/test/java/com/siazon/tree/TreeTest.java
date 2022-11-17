@@ -28,8 +28,26 @@ class TreeTest {
 
     @Test
     void checkFun() {
+        int[] A = new int[]{1, 2, 1, 2, 1, 2};
+        int res = solution("aabbcc", A);
+        System.out.println(res);
     }
 
+    public int solution(String s, int[] A) {
+        if (s.length() == 0) return 0;
+        char currChar = s.charAt(0);
+        int maxCost = A[0];
+        int result = 0;
+        for (int i = 1; i < s.length(); i++) {
+            if (currChar == s.charAt(i)) {
+                result += Math.min(A[i - 1], A[i]);
+                if (A[i - 1] > A[i])
+                    A[i] = A[i - 1];
+            }
+            currChar = s.charAt(i);
+        }
+        return result;
+    }
 
     @Test
     void layerTraversal() {
