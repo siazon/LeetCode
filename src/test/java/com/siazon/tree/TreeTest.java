@@ -33,6 +33,7 @@ class TreeTest {
         System.out.println(res);
     }
 
+    //1578
     public int solution(String s, int[] A) {
         if (s.length() == 0) return 0;
         char currChar = s.charAt(0);
@@ -146,5 +147,16 @@ class TreeTest {
         int left = test.getMaxLeft(test.tree);
         System.out.println(left);
 
+    }
+
+    @Test
+    void getminResearchTest() {
+        TreeNode treeNode19 = new TreeNode(12);
+        TreeNode treeNode1 = new TreeNode(49);
+        TreeNode treeNode2 = new TreeNode(48, treeNode19, treeNode1);
+        TreeNode treeNode4 = new TreeNode(0);
+        TreeNode treeNode7 = new TreeNode(1, treeNode4, treeNode2);
+        int val = test.getminResearch(treeNode7);
+        System.out.println(val);
     }
 }

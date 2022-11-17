@@ -544,9 +544,27 @@ public class Tree {
         if (max != null && max.val < root.val)
             return true;
         max = root;
+
         boolean isright = isBST(root.right);
         return isright;
     }
 
+    //530.二叉搜索树的最小绝对差
+    public int getminResearch(TreeNode root) {
+        getRes(root);
+        return minRes;
+    }
+
+    TreeNode val;
+    int minRes = Integer.MAX_VALUE;
+
+    private void getRes(TreeNode root) {
+        if (root == null) return;
+        getRes(root.left);
+        if (val != null)
+            minRes = Math.min(minRes, root.val - val.val);
+        val = root;
+        getRes(root.right);
+    }
 }
 
