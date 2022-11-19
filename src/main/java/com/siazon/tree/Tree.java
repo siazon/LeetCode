@@ -1,5 +1,6 @@
 package com.siazon.tree;
 
+
 import java.util.*;
 
 public class Tree {
@@ -565,6 +566,40 @@ public class Tree {
             minRes = Math.min(minRes, root.val - val.val);
         val = root;
         getRes(root.right);
+    }
+
+    TreeNode currNode;
+    int maxCount;
+    int count;
+    List<Integer> list = new ArrayList<>();
+
+    //501.二叉搜索树中的众数
+    public int[] getModeNumber(TreeNode root) {
+        getMode(root);
+        int[] res = new int[list.size()];
+        for (int i = 0; i < list.size(); i++)
+            res[i] = list.get(i);
+        return res;
+    }
+
+    private void getMode(TreeNode root) {
+        if (root == null) return;
+        getMode(root.left);
+        if (currNode == null || currNode.val != root.val) {
+            count = 1;
+        } else {
+            count++;
+        }
+        if (count > maxCount) {
+            list.clear();
+            list.add(root.val);
+            maxCount = count;
+        } else if (count == maxCount) {
+            list.add(root.val);
+        }
+        currNode = root;
+        getMode(root.right);
+
     }
 }
 
