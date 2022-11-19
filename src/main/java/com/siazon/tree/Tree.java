@@ -601,5 +601,37 @@ public class Tree {
         getMode(root.right);
 
     }
+
+    public int[] findMode(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode pre = null;
+        TreeNode curr = root;
+        while (curr != null || !stack.isEmpty()) {
+            if (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            } else {
+                curr = stack.pop();
+                if (pre == null || pre.val != curr.val) {
+                    count = 1;
+                } else {
+                    count++;
+                }
+                if (count > maxCount) {
+                    list.clear();
+                    list.add(currNode.val);
+                    maxCount = count;
+                } else if (maxCount == count) {
+                    list.add(currNode.val);
+                }
+                pre = curr;
+                curr = curr.right;
+            }
+        }
+        int[] res = new int[list.size()];
+        for (int i = 0; i < list.size(); i++)
+            res[i] = list.get(i);
+        return res;
+    }
 }
 
