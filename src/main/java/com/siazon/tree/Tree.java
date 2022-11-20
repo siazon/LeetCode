@@ -633,5 +633,19 @@ public class Tree {
             res[i] = list.get(i);
         return res;
     }
+
+    //236. 二叉树的最近公共祖先
+    public TreeNode getCommonBase(TreeNode root, TreeNode a, TreeNode b) {
+        if (root == null || root == a || root == b) return root;
+        TreeNode L = getCommonBase(root.left, a, b);
+        TreeNode R = getCommonBase(root.right, a, b);
+        if (L == null && R == null)
+            return null;
+        else if (L == null && R != null)
+            return R;
+        else if (L != null && R == null)
+            return L;
+        else return root;
+    }
 }
 
