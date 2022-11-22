@@ -647,5 +647,13 @@ public class Tree {
             return L;
         else return root;
     }
+
+    //235. 二叉搜索树的最近公共祖先
+    public TreeNode getCommonBaseB(TreeNode root, TreeNode p, TreeNode q) {
+        if (root.val > p.val && root.val > q.val) return getCommonBaseB(root.left, p, q);
+        if (root.val < p.val && root.val < q.val) return getCommonBaseB(root.right, p, q);
+        return root;
+    }
+
 }
 

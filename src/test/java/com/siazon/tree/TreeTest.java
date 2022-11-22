@@ -3,7 +3,7 @@ package com.siazon.tree;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.util.*;
 
 class TreeTest {
     Tree test;
@@ -52,10 +52,67 @@ class TreeTest {
 
     @Test
     void layerTraversal() {
+
+        Dictionary<Integer, Integer> dic = new Hashtable<>();
+
+        TreeMap<Integer, String> map = new TreeMap<>();
+
+        map.put(3, "map");
+        map.put(2, "map");
+        map.put(4, "map");
+
+
+        TreeSet<Integer> set = new TreeSet<>();
+        set.add(2);
+        set.add(1);
+        set.add(5);
+        List<Integer> list = new ArrayList<>();
+        Iterator<Map.Entry<Integer, String>> integers = map.entrySet().iterator();
+        while (integers.hasNext()) {
+            int i = integers.next().getKey();
+            if (i == 2)
+                integers.remove();
+            //System.out.println(integers.next().getKey());
+        }
+        for (int i : map.keySet())
+            System.out.println(i);
+
+        Deque<Integer> queue = new LinkedList<>();
+        queue.offer(1);
+        queue.offer(2);
+        queue.offer(3);
+
+
+//        System.out.println(queue.poll());
+//        System.out.println(queue.peek());
+//        System.out.println(queue.pop());
+        Integer[] a = new Integer[]{1, 2, 3};
+        String[] b = new String[]{"a", "b"};
+        Integer a1 = printArray(a);
+        String b1 = printArray(b);
+    }
+
+    public <E> E printArray(E[] a) {
+        return a[0];
+    }
+
+    class Box<T> {
+        private T t;
+
+        public void add(T t) {
+            this.t = t;
+        }
+
+        public T get() {
+            return t;
+        }
     }
 
     @Test
     void commonTraversal() {
+        Box<String> box = new Box<>();
+        box.add("23");
+        System.out.println(box.get());
     }
 
     @Test
