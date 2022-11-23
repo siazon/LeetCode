@@ -655,5 +655,20 @@ public class Tree {
         return root;
     }
 
+    //701.二叉搜索树中的插入操作
+    public TreeNode insterNode(TreeNode root, int val) {
+        if (root == null) return new TreeNode(val);
+        if (root.val < val)
+            root.right = insterNode(root.right, val);
+        else if (root.val > val)
+            root.left = insterNode(root.left, val);
+        return root;
+    }
+
+    //450.删除二叉搜索树中的节点
+    public TreeNode deleteNode(TreeNode root, int val) {
+        if (root == null) return null;
+        if (root.val < val)
+    }
 }
 
