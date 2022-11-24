@@ -3,29 +3,52 @@ package com.siazon.sort;
 import java.util.Arrays;
 
 public class Sort {
+    //冒泡：一步一步把大的往后移
     public int[] sort(int[] numbs) {
         for (int i = 0; i < numbs.length; i++) {
-            for (int j = 0; j < numbs.length - 1 - i; j++) {
-                if (numbs[j + 1] < numbs[j]) {
-                    int temp = numbs[j + 1];
-                    numbs[j + 1] = numbs[j];
-                    numbs[j] = temp;
+            boolean flag = true;
+            for (int j = 0; j < numbs.length - 1; j++) {
+                if (numbs[j] > numbs[j + 1]) {
+                    numbs[j] = numbs[j] + numbs[j + 1];
+                    numbs[j + 1] = numbs[j] - numbs[j + 1];
+                    numbs[j] = numbs[j] - numbs[j + 1];
+                    flag = false;
                 }
+            }
+            if (flag) break;
+        }
+
+        return numbs;
+    }
+
+    //选择 找到最小的，把最小的往前移
+    public int[] choseSort(int[] numbs) {
+        for (int i = 0; i < numbs.length; i++) {
+            int min = i;
+            for (int j = 0; j < numbs.length; j++) {
+                if (numbs[j] < numbs[min])
+                    min = j;
+            }
+            if (i != min) {
+                numbs[min] = numbs[min] + numbs[i];
+                numbs[i] = numbs[min] - numbs[i];
+                numbs[min] = numbs[min] - numbs[i];
             }
         }
         return numbs;
     }
 
+    //插入
     public int[] insertSort(int[] numbs) {
-        int curr;
-        for (int i = 0; i < numbs.length - 1; i++) {
-            curr = numbs[i + 1];
+        for (int i = 1; i < numbs.length; i++) {
             int idx = i;
-            while (idx >= 0 && curr < numbs[idx]) {
-                numbs[idx + 1] = numbs[idx];
+            int curr = numbs[i];
+            while (idx > 0 && curr < numbs[idx - 1]) {
+                numbs[idx] = numbs[idx - 1];
                 idx--;
             }
-            numbs[idx + 1] = curr;
+            if (idx != i)
+                numbs[idx] = curr;
         }
         return numbs;
     }

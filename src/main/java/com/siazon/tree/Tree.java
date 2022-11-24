@@ -33,11 +33,11 @@ public class Tree {
 
         TreeNode treeNode19 = new TreeNode(19);
         TreeNode treeNode1 = new TreeNode(1);
-        TreeNode treeNode2 = new TreeNode(2, null, treeNode19);
+        TreeNode treeNode2 = new TreeNode(2, null, null);
         TreeNode treeNode4 = new TreeNode(4, treeNode1, treeNode2);
         TreeNode treeNode7 = new TreeNode(7);
-        TreeNode treeNode9 = new TreeNode(9, null, null);
-        TreeNode treeNode8 = new TreeNode(8, treeNode9, null);
+//        TreeNode treeNode9 = new TreeNode(9, null, null);
+        TreeNode treeNode8 = new TreeNode(8, null, null);
         TreeNode treeNode6 = new TreeNode(6, treeNode7, treeNode8);
 
         return new TreeNode(5, treeNode4, treeNode6);
@@ -684,5 +684,7 @@ public class Tree {
         }
         return root;
     }
+    //669. 修剪二叉搜索树
+
 }
 

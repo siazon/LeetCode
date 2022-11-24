@@ -117,6 +117,15 @@ class TreeTest {
 
     @Test
     void midorderTraversal() {
+        List<Integer> list = new ArrayList<>();
+        preOrder(test.tree, list);
+    }
+
+    public void preOrder(TreeNode root, List<Integer> res) {
+        if (root == null) return;
+        res.add(root.val);
+        if (root.left != null) preOrder(root.left, res);
+        if (root.right != null) preOrder(root.right, res);
     }
 
     @Test
