@@ -684,7 +684,21 @@ public class Tree {
         }
         return root;
     }
-    //669. 修剪二叉搜索树
 
+    //669. 修剪二叉搜索树
+    //108.将有序数组转换为二叉搜索树
+    public TreeNode CreateTree(int[] list) {
+        return CreateNode(list, 0, list.length);
+    }
+
+    private TreeNode CreateNode(int[] list, int L, int R) {
+        if (L > R) return null;
+        if (R - L == 1) return new TreeNode(list[L]);
+        int mid = L + (R - L) / 2;
+        TreeNode root = new TreeNode(list[mid]);
+        root.left = CreateNode(list, L, mid);
+        root.right = CreateNode(list, mid + 1, R);
+        return root;
+    }
 }
 
