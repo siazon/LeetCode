@@ -1,9 +1,11 @@
 package com.siazon.tree;
 
+import com.siazon.others.DataCache;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+
 
 class TreeTest {
     Tree test;
@@ -16,6 +18,8 @@ class TreeTest {
 
     @Test
     void minLength() {
+        TreeNode node = DataCache.getInstance().tree;
+        System.out.println(node.val);
     }
 
     @Test
@@ -24,6 +28,8 @@ class TreeTest {
 
     @Test
     void maxlength() {
+        Integer a = 1000, b = 1000;
+        System.out.println(a.equals(b));
     }
 
     @Test
