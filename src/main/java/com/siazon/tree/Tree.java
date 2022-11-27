@@ -700,5 +700,6 @@ public class Tree {
         root.right = CreateNode(list, mid + 1, R);
         return root;
     }
+    //538.把二叉搜索树转换为累加树
 }
 
