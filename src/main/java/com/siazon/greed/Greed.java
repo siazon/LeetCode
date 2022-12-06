@@ -57,7 +57,7 @@ public class Greed {
         return Math.max(dp[nums.length - 1][0], dp[nums.length - 1][1]);
     }
 
-    //53. 最大子序和
+    //53. 最大子序和 [-2,1,-3,4,-1,2,1,-5,4]
     public int maxSubArray(int[] nums) {
         if (nums.length == 1) {
             return nums[0];
