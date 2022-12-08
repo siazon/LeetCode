@@ -73,4 +73,28 @@ public class Greed {
         }
         return sum;
     }
+
+    //53. 最大子序和
+    public int maxSum(int[] numbs) {
+        if (numbs.length == 1) return numbs[0];
+        int result = Integer.MIN_VALUE;
+        int count = 0;
+        for (int numb : numbs) {
+            count += numb;
+            result = result > count ? result : count;
+            if (count < 0) count = 0;
+        }
+        return result;
+    }
+
+    //122.买卖股票的最佳时机II
+    public int maxProfit(int[] prices) {
+        int result = 0;
+        for (int i = 1; i < prices.length; i++) {
+            int gain = prices[i] - prices[i - 1];
+            if (gain > 0)
+                result += gain;
+        }
+        return result;
+    }
 }
