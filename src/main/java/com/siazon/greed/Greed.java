@@ -109,4 +109,23 @@ public class Greed {
         }
         return false;
     }
+
+    //45.跳跃游戏II
+    public int jump(int[] nums) {
+        if (nums == null || nums.length < 2) return 0;
+        int count = 0, curr = 0, max = 0;
+        for (int i = 0; i < nums.length; i++) {
+            max = Math.max(max, i + nums[i]);
+            if (max >= nums.length - 1) {
+                count++;
+                break;
+            }
+            if (i == curr) {
+                curr = max;
+                count++;
+            }
+
+        }
+        return count;
+    }
 }
