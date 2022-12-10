@@ -2,10 +2,12 @@ package com.siazon.kmp;
 
 public class KMP {
     public static void main(String[] args) {
-        System.out.println(getsun(20)+"");
+        System.out.println(getsun(20) + "");
     }
 
     public static int getsun(int n) {
+
+
         if (n == 1 || n == 2)
             return 1;
         else {

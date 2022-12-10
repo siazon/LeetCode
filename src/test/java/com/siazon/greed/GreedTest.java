@@ -7,6 +7,7 @@ class GreedTest {
 
     @Test
     void getCookes() {
+        test.jump(null);
     }
 
     @Test

@@ -231,4 +231,5 @@ class TreeTest {
         int val = test.getminResearch(treeNode7);
         System.out.println(val);
     }
+
 }

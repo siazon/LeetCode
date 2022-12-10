@@ -3,6 +3,7 @@ package com.siazon.greed;
 import java.util.Arrays;
 
 public class Greed {
+
     //455.分发饼干
     public int getCookes(int[] arrs, int[] children) {
         Arrays.sort(arrs);
@@ -127,5 +128,21 @@ public class Greed {
 
         }
         return count;
+    }
+
+    //1005.K次取反后最大化的数组和
+    public int getAbsMaxSum(int[] nums, int k) {
+        if (nums.length == 1) return k % 2 > 0 ? nums[0] : -nums[0];
+        int idx = 0, sum = 0;
+        for (int i = 0; i < k; i++) {
+            if (i < nums.length - 1 && nums[idx] < 0) {
+                nums[idx] = -nums[idx];
+                if (nums[idx] >= nums[idx + 1]) idx++;
+                continue;
+            }
+            nums[idx] = -nums[idx];
+        }
+        sum = Arrays.stream(nums).sum();
+        return sum;
     }
 }
