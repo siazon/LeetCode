@@ -1,6 +1,7 @@
 package com.siazon.greed;
 
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Greed {
 
@@ -133,7 +134,8 @@ public class Greed {
     //1005.K次取反后最大化的数组和
     public int getAbsMaxSum(int[] nums, int k) {
         if (nums.length == 1) return k % 2 > 0 ? nums[0] : -nums[0];
-        int idx = 0, sum = 0;
+        int idx = 0;
+        AtomicInteger sum = new AtomicInteger();
         for (int i = 0; i < k; i++) {
             if (i < nums.length - 1 && nums[idx] < 0) {
                 nums[idx] = -nums[idx];
@@ -142,7 +144,24 @@ public class Greed {
             }
             nums[idx] = -nums[idx];
         }
-        sum = Arrays.stream(nums).sum();
-        return sum;
+        sum.set(Arrays.stream(nums).sum());
+
+        return sum.get();
+    }
+
+    //134. 加油站
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        int start = 0, currSum = 0, totalSum = 0;
+        for (int i = 0; i < gas.length; i++) {
+            int rest = gas[i] - cost[i];
+            currSum += rest;
+            totalSum += rest;
+            if (currSum < 0) {
+                start = i + 1;
+                currSum = 0;
+            }
+        }
+        if (totalSum < 0) return -1;
+        return start;
     }
 }
