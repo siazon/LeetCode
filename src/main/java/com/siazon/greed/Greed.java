@@ -164,4 +164,21 @@ public class Greed {
         if (totalSum < 0) return -1;
         return start;
     }
+
+    //135. 分发糖果
+    public int candy(int[] ratings) {
+        int[] score = new int[ratings.length];
+        score[0] = 1;
+        for (int i = 1; i < ratings.length; i++) {
+            score[i] = ratings[i] > ratings[i - 1] ? score[i - 1] + 1 : 1;
+        }
+        for (int i = ratings.length - 2; i >= 0; i--) {
+            if (ratings[i] > ratings[i + 1]) {
+                score[i] = Math.min(score[i], score[i] + 1);
+            }
+        }
+        int res = Arrays.stream(score).sum();
+        return res;
+
+    }
 }
