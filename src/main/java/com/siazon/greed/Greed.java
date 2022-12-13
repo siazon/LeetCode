@@ -1,6 +1,7 @@
 package com.siazon.greed;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Greed {
@@ -177,8 +178,7 @@ public class Greed {
                 score[i] = Math.min(score[i], score[i] + 1);
             }
         }
-        int res = Arrays.stream(score).sum();
-        return res;
+        return Arrays.stream(score).sum();
 
     }
 
@@ -207,5 +207,38 @@ public class Greed {
             }
         }
         return true;
+    }
+
+    //406.根据身高重建队列
+    public int[][] reconstructQueue(int[][] people) {
+        // 身高从大到小排（身高相同k小的站前面）
+        Arrays.sort(people, (a, b) -> {
+            if (a[0] == b[0]) return a[1] - b[1];
+            return b[0] - a[0];
+        });
+
+        LinkedList<int[]> que = new LinkedList<>();
+
+        for (int[] p : people) {
+            que.add(p[1], p);
+        }
+
+        return que.toArray(new int[people.length][]);
+    }
+
+    //452. 用最少数量的箭引爆气球
+    public int findMinArrowShots(int[][] points) {
+        Arrays.sort(points, (a, b) -> {
+            return a[0] - b[0];
+        });
+        int count = 1;
+        for (int i = 1; i < points.length; i++) {
+            if (points[i][0] < points[i - 1][0]) {
+                count++;
+            } else {
+                points[i][1] = Math.min(points[i][1], points[i - 1][1]);
+            }
+        }
+        return count;
     }
 }

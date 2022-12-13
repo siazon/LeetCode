@@ -34,4 +34,11 @@ class GreedTest {
     void canCompleteCircuitTest() {
         int a = test.canCompleteCircuit(new int[]{1, 2, 3, 4, 5}, new int[]{3, 4, 5, 1, 2});
     }
+
+    @Test
+    void reconstructQueueTest() {
+
+        int[][] demo = new int[][]{{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}};
+        test.reconstructQueue(demo);
+    }
 }
