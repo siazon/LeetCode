@@ -2,6 +2,8 @@ package com.siazon.greed;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 class GreedTest {
     Greed test = new Greed();
 
@@ -53,5 +55,11 @@ class GreedTest {
     void eraseOverlapIntervalsTest() {
         int[][] demo = new int[][]{{10, 16}, {2, 8}, {1, 6}, {6, 7}, {7, 12}};
         test.eraseOverlapIntervals(demo);
+    }
+
+    @Test
+    void partitionLabelsTest() {
+        List<Integer> list = test.partitionLabels("abcade");
+        list.forEach(System.out::println);
     }
 }
