@@ -41,4 +41,17 @@ class GreedTest {
         int[][] demo = new int[][]{{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}};
         test.reconstructQueue(demo);
     }
+
+    @Test
+    void findMinArrowShotsTest() {
+        int[][] demo = new int[][]{{10, 16}, {2, 8}, {1, 6}, {7, 12}};
+        demo = new int[][]{{-2147483646, -2147483645}, {2147483646, 2147483647}};
+        test.findMinArrowShots(demo);
+    }
+
+    @Test
+    void eraseOverlapIntervalsTest() {
+        int[][] demo = new int[][]{{10, 16}, {2, 8}, {1, 6}, {6, 7}, {7, 12}};
+        test.eraseOverlapIntervals(demo);
+    }
 }

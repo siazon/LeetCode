@@ -228,17 +228,36 @@ public class Greed {
 
     //452. 用最少数量的箭引爆气球
     public int findMinArrowShots(int[][] points) {
-        Arrays.sort(points, (a, b) -> {
-            return a[0] - b[0];
-        });
+        Arrays.sort(points, (a, b) -> Integer.compare(a[0], b[0]));
         int count = 1;
         for (int i = 1; i < points.length; i++) {
-            if (points[i][0] < points[i - 1][0]) {
+            if (points[i][0] > points[i - 1][1]) {
                 count++;
             } else {
                 points[i][1] = Math.min(points[i][1], points[i - 1][1]);
             }
         }
+        return count;
+    }
+
+    //435. 无重叠区间
+    public int eraseOverlapIntervals(int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> {
+            // 按照区间右边界升序排序
+            return a[1] - b[1];
+        });
+
+        int count = 0;
+        int edge = Integer.MIN_VALUE;
+        for (int i = 0; i < intervals.length; i++) {
+            // 若上一个区间的右边界小于当前区间的左边界，说明无交集
+            if (edge <= intervals[i][0]) {
+                edge = intervals[i][1];
+            } else {
+                count++;
+            }
+        }
+
         return count;
     }
 }
