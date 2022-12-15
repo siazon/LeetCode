@@ -62,4 +62,9 @@ class GreedTest {
         List<Integer> list = test.partitionLabels("abcade");
         list.forEach(System.out::println);
     }
+
+    @Test
+    void monotoneIncreasingDigitsTest() {
+        test.monotoneIncreasingDigits(1977);
+    }
 }

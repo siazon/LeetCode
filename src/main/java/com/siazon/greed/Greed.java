@@ -301,4 +301,21 @@ public class Greed {
         res.add(new int[]{l, r});
         return res.toArray(new int[res.size()][]);
     }
+
+    //738.单调递增的数字
+    public int monotoneIncreasingDigits(int N) {
+        String nStr = String.valueOf(N);
+        char[] chars = nStr.toCharArray();
+        int start = nStr.length();
+        for (int i = nStr.length() - 1; i > 0; i--) {
+            if (chars[i] < chars[i - 1]) {
+                chars[i - 1]--;
+                start = i;
+            }
+        }
+        for (int i = start; i < nStr.length(); i++) {
+            chars[i] = '9';
+        }
+        return Integer.parseInt(String.valueOf(chars));
+    }
 }
