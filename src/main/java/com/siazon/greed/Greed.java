@@ -318,4 +318,20 @@ public class Greed {
         }
         return Integer.parseInt(String.valueOf(chars));
     }
+
+    //714. 买卖股票的最佳时机含手续费
+    public int maxProfit(int[] prices, int fee) {
+        int buy = prices[0] + fee;
+        int sum = 0;
+        for (int i : prices) {
+            if (i + fee < buy) {
+                buy = i + fee;
+            } else if (i > buy) {
+                sum += i - buy;
+                buy = i;
+            }
+        }
+        return sum;
+
+    }
 }
