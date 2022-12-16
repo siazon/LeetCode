@@ -1,5 +1,7 @@
 package com.siazon.greed;
 
+import com.siazon.tree.TreeNode;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -332,6 +334,29 @@ public class Greed {
             }
         }
         return sum;
+
+    }
+
+    //968.监控二叉树
+    int res = 0;
+
+    public int minCameraCover(TreeNode root) {
+        if (getCamera(root) == 0)
+            res++;
+        return res;
+    }
+
+    int getCamera(TreeNode root) {
+        if (root == null) return 2;
+        int l = getCamera(root.left);
+        int r = getCamera(root.right);
+        if (l == 2 && r == 2)
+            return 0;
+        else if (l == 0 || r == 0) {
+            res++;
+            return 1;
+        } else
+            return 2;
 
     }
 }
