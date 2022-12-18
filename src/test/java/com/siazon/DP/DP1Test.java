@@ -17,4 +17,10 @@ class DP1Test {
         int res = test.minCostClimbingStairs(new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1});
         System.out.println(res);
     }
+
+    @Test
+    void uniquePathsWithObstaclesTest() {
+        int[][] seq = new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+        test.uniquePathsWithObstacles(seq);
+    }
 }
