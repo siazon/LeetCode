@@ -23,4 +23,10 @@ class DP1Test {
         int[][] seq = new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
         test.uniquePathsWithObstacles(seq);
     }
+
+    @Test
+    void numTreesTest() {
+        int res = test.numTrees(3);
+        System.out.println(res);
+    }
 }
