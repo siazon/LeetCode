@@ -29,4 +29,18 @@ class DP1Test {
         int res = test.numTrees(3);
         System.out.println(res);
     }
+
+    @Test
+    void test() {
+        int[][] seq = new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+        int a = seq[0][-2];
+    }
+
+    @Test
+    void testweightbagproblemTest() {
+        int[] weight = {1, 3, 4};
+        int[] value = {15, 20, 30};
+        int bagsize = 4;
+        test.testweightbagproblem(weight, value, bagsize);
+    }
 }
