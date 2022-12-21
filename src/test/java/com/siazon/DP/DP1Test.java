@@ -43,4 +43,12 @@ class DP1Test {
         int bagsize = 4;
         test.testweightbagproblem(weight, value, bagsize);
     }
+
+    @Test
+    void testWeightBagProblemTest() {
+        int[] weight = {1, 3, 4};
+        int[] value = {15, 20, 30};
+        int bagsize = 4;
+        test.testWeightBagProblem(weight, value, bagsize);
+    }
 }
