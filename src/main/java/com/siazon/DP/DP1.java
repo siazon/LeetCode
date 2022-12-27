@@ -118,7 +118,6 @@ public class DP1 {
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
         }
-
         if (sum % 2 == 1)
             return false;
         int target = sum / 2;
@@ -146,4 +145,5 @@ public class DP1 {
         }
         return dp[nums.length - 1][target] == target;
     }
+    //basecase
 }
