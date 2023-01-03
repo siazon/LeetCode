@@ -115,22 +115,14 @@ public class DP1 {
 
     public boolean canPartition(int[] nums) {
         int sum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
-        }
-        if (sum % 2 == 1)
-            return false;
+        for (int i = 0; i < nums.length; i++) sum += nums[i];
+        if (sum % 2 == 1) return false;
         int target = sum / 2;
-
         //dp[i][j]代表可装物品为0-i，背包容量为j的情况下，背包内容量的最大价值
         int[][] dp = new int[nums.length][target + 1];
-
         //初始化,dp[0][j]的最大价值nums[0](if j > weight[i])
         //dp[i][0]均为0，不用初始化
-        for (int j = nums[0]; j <= target; j++) {
-            dp[0][j] = nums[0];
-        }
-
+        for (int j = nums[0]; j <= target; j++) dp[0][j] = nums[0];
         //遍历物品，遍历背包
         //递推公式:
         for (int i = 1; i < nums.length; i++) {
@@ -170,6 +162,28 @@ public class DP1 {
             }
         }
         return dp[n][sum];
+    }
+
+    boolean canPartitionArray(int[] nums) {
+        int sum = 0;
+        for (int num : nums) sum += num;
+        // 和为奇数时，不可能划分成两个和相等的集合
+        if (sum % 2 != 0) return false;
+        int n = nums.length;
+        sum = sum / 2;
+        boolean[] dp = new boolean[sum + 1];
+
+        // base case
+        dp[0] = true;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = sum; j >= 0; j--) {
+                if (j - nums[i] >= 0) {
+                    dp[j] = dp[j] || dp[j - nums[i]];
+                }
+            }
+        }
+        return dp[sum];
     }
 
     int maxSubArray(int[] nums) {
