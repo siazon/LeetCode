@@ -233,7 +233,6 @@ public class DP1 {
         for (int s : stones) {
             sum += s;
         }
-
         int target = sum / 2;
         //初始化，dp[i][j]为可以放0-i物品，背包容量为j的情况下背包中的最大价值
         int[][] dp = new int[stones.length][target + 1];
@@ -242,7 +241,6 @@ public class DP1 {
         for (int j = stones[0]; j <= target; j++) {
             dp[0][j] = stones[0];
         }
-
         for (int i = 1; i < stones.length; i++) {
             for (int j = 1; j <= target; j++) {//注意是等于
                 if (j >= stones[i]) {
@@ -253,9 +251,23 @@ public class DP1 {
                 }
             }
         }
-
         System.out.println(dp[stones.length - 1][target]);
         return (sum - dp[stones.length - 1][target]) - dp[stones.length - 1][target];
     }
 
+    public int findTargetSumWays(int[] nums, int target) {
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) sum += nums[i];
+        if ((target + sum) % 2 != 0) return 0;
+        int size = (target + sum) / 2;
+        if (size < 0) size = -size;
+        int[] dp = new int[size + 1];
+        dp[0] = 1;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = size; j >= nums[i]; j--) {
+                dp[j] += dp[j - nums[i]];
+            }
+        }
+        return dp[size];
+    }
 }
